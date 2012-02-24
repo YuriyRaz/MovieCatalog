@@ -1,0 +1,155 @@
+﻿@using MovieCatalog.Models
+@model DataGeneratorViewModel
+<script src="@Url.Content( "~/Scripts/jquery.validate.min.js" )" type="text/javascript"></script>
+<script src="@Url.Content( "~/Scripts/jquery.validate.unobtrusive.min.js" )" type="text/javascript"></script>
+@{
+    ViewBag.Title = "Data Generator Utility";
+}
+
+@using (Html.BeginForm())
+{
+    <h3>
+        Database statistic:</h3>
+    <div>
+        <b>User records count:</b> @Html.DisplayFor( m => m.DatabaseStatistic.UsersCount )
+        @Html.HiddenFor( m => m.DatabaseStatistic.UsersCount )
+    </div>
+    <div>
+        <b>Movie records count:</b> @Html.DisplayFor( m => m.DatabaseStatistic.MoviesCount )
+        @Html.HiddenFor( m => m.DatabaseStatistic.MoviesCount )
+    </div>
+    <div>
+        <b>Actor records count:</b> @Html.DisplayFor( m => m.DatabaseStatistic.ActorsCount )
+        @Html.HiddenFor( m => m.DatabaseStatistic.ActorsCount )
+    </div>
+    @Html.Partial( "RepositoryOperationResult", (object)ViewBag.Result, new ViewDataDictionary { { "Title", "Current operation result" } } )
+    <h2>
+        Remove all user records
+    </h2>
+    <p>
+        @if (ViewBag.Result.State != RepositoryOperationResultState.InProcess)
+        {
+            <input type="submit" name="RemoveAllUsers" value="Kill 'Em All!" />
+        }
+        else
+        {
+            @Html.ActionLink( "Update result state", "GenerateData" )
+        }
+    </p>
+    <h2>
+        Generate user records
+    </h2>
+    <div class="editor-label">
+        @Html.LabelFor( m => m.UsersNumberForGeneration ): @Html.EditorFor( m => m.UsersNumberForGeneration )
+        @Html.ValidationMessageFor( m => m.UsersNumberForGeneration )
+    </div>
+    
+    <p>
+        @if (ViewBag.Result.State != RepositoryOperationResultState.InProcess)
+        {
+            <input type="submit" name="GenerateUserRecords" value="Generate" />
+        }
+        else
+        {
+            @Html.ActionLink( "Update result state", "GenerateData" )
+        }
+    </p>
+    <h2>
+        Generate users favorite movies
+    </h2>
+    <div class="editor-label">
+        @Html.LabelFor( m => m.MinFavoriteMovies): @Html.EditorFor( m => m.MinFavoriteMovies ) 
+        @Html.ValidationMessageFor( m => m.MinFavoriteMovies )&nbsp;&nbsp;
+        @Html.LabelFor( m => m.MaxFavoriteMovies ): @Html.EditorFor( m => m.MaxFavoriteMovies ) 
+        @Html.ValidationMessageFor( m => m.MaxFavoriteMovies )
+    </div>
+    <p>
+        @if (ViewBag.Result.State != RepositoryOperationResultState.InProcess)
+        {
+            <input type="submit" name="GenerateFavoriteMovies" value="Generate" />
+        }
+        else
+        {
+            @Html.ActionLink( "Update result state", "GenerateData" )
+        }
+    </p>
+    <h2>
+        Generate friendship relations
+    </h2>
+    <div class="editor-label">
+        @Html.LabelFor( m => m.MinFriends ): @Html.EditorFor( m => m.MinFriends ) 
+        @Html.ValidationMessageFor( m => m.MinFriends )&nbsp;&nbsp;
+        @Html.LabelFor( m => m.MaxFriends ): @Html.EditorFor( m => m.MaxFriends ) 
+        @Html.ValidationMessageFor( m => m.MaxFriends )
+    </div>
+    <p>
+        @if (ViewBag.Result.State != RepositoryOperationResultState.InProcess)
+        {
+            <input type="submit" name="GenerateFriendshipRelations" value="Generate" />
+        }
+        else
+        {
+            @Html.ActionLink( "Update result state", "GenerateData" )
+        }
+    </p>
+    <h2>
+        Remove all movie records
+    </h2>
+    <p>
+        @if (ViewBag.Result.State != RepositoryOperationResultState.InProcess)
+        {
+            <input type="submit" name="RemoveAllMovies" value="Kill 'Em All!" />
+        }
+        else
+        {
+            @Html.ActionLink( "Update result state", "GenerateData" )
+        }
+    </p>
+    <h2>
+        Generate movie records
+    </h2>
+    <div class="editor-label">
+        @Html.LabelFor( m => m.MoviesNumberForGeneration ): @Html.EditorFor( m => m.MoviesNumberForGeneration )
+        @Html.ValidationMessageFor( m => m.MoviesNumberForGeneration )
+    </div>
+    <p>
+        @if (ViewBag.Result.State != RepositoryOperationResultState.InProcess)
+        {
+            <input type="submit" name="GenerateMovieRecords" value="Generate" />
+        }
+        else
+        {
+            @Html.ActionLink( "Update result state", "GenerateData" )
+        }
+    </p>
+    <h2>
+        Remove all actor records
+    </h2>
+    <p>
+        @if (ViewBag.Result.State != RepositoryOperationResultState.InProcess)
+        {
+            <input type="submit" name="RemoveAllActors" value="Kill 'Em All!" />
+        }
+        else
+        {
+            @Html.ActionLink( "Update result state", "GenerateData" )
+        }
+    </p>
+    <h2>
+        Generate actor records
+    </h2>
+    <div class="editor-label">
+        @Html.LabelFor( m => m.ActorsNumberForGeneration ): @Html.EditorFor( m => m.ActorsNumberForGeneration )
+        @Html.ValidationMessageFor( m => m.ActorsNumberForGeneration )
+    </div>
+    <p>
+        @if (ViewBag.Result.State != RepositoryOperationResultState.InProcess)
+        {
+            <input type="submit" name="GenerateActorRecords" value="Generate" />
+        }
+        else
+        {
+            @Html.ActionLink( "Update result state", "GenerateData" )
+        }
+    </p>
+}

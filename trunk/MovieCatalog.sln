@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCatalog", "MovieCatalog\MovieCatalog.csproj", "{AB93A121-7577-4C50-8B61-6194B240E998}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCatalog.Tests", "MovieCatalog.Tests\MovieCatalog.Tests.csproj", "{CAD0A9CC-656E-4391-BEA8-7A95C1BEBE0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB93A121-7577-4C50-8B61-6194B240E998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB93A121-7577-4C50-8B61-6194B240E998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB93A121-7577-4C50-8B61-6194B240E998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB93A121-7577-4C50-8B61-6194B240E998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD0A9CC-656E-4391-BEA8-7A95C1BEBE0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD0A9CC-656E-4391-BEA8-7A95C1BEBE0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD0A9CC-656E-4391-BEA8-7A95C1BEBE0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD0A9CC-656E-4391-BEA8-7A95C1BEBE0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

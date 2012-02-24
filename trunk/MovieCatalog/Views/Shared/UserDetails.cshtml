@@ -1,0 +1,64 @@
+﻿@using MovieCatalog.Models
+@using System.Linq
+@model User
+<h2>
+    User info [@Model.Name]</h2>
+@if (Model.FavoriteMovies.Any())
+{
+    <h3>
+        Your favorite movies:</h3>
+    foreach (var movie in Model.FavoriteMovies)
+    {
+    <div>@Html.ActionLink( movie.Name, "Details", "Movie", new { id = movie.MovieId }, null )</div>
+    }
+}
+else
+{
+    <h3>
+        User has no favorite movies</h3>
+}
+@if (Model.Friends.Any())
+{
+    <h3>
+        Friends</h3>
+    foreach (var friend in Model.Friends)
+    {
+    <div>@Html.ActionLink( friend.Name, "UserInfo", "Home", new { id = friend.UserId }, null )</div>
+    }
+}
+else
+{
+    <h3>
+        User has no friends</h3>
+}
+@if (Model.FriendsFavoriteMovies.Any())
+{
+    <h3>
+        Your friends favorite movies:</h3>
+    foreach (MovieShortDetail movie in Model.FriendsFavoriteMovies)
+    {
+    <div>@Html.ActionLink( movie.Name, "Details", "Movie", new { id = movie.MovieId }, null )</div>
+    }
+}
+else
+{
+    <h3>
+        User's friends have no favorite movies</h3>
+}
+@if (ViewBag.FriendsFavoriteMovies != null)
+{
+    if (((IEnumerable<MovieShortDetail>)ViewBag.FriendsFavoriteMovies).Any())
+    {
+    <h3>
+        [BY QUERY] Your friends favorite movies:</h3>
+        foreach (MovieShortDetail movie in ViewBag.FriendsFavoriteMovies)
+        {
+    <div>@Html.ActionLink( movie.Name, "Details", "Movie", new { id = movie.MovieId }, null )</div>
+        }
+    }
+    else
+    {
+    <h3>
+        [BY QUERY] User's friends have no favorite movies</h3>
+    }
+}

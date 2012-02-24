@@ -1,0 +1,24 @@
+﻿@using MovieCatalog.Models
+@model MovieCatalog.Models.RepositoryOperationResult
+<h4>@ViewBag.Title</h4>
+<div class="editor-label">
+    @Html.LabelFor( m => m.State ): @Html.DisplayFor( m => m.State )
+</div>
+<div class="editor-label">
+    @Html.LabelFor( m => m.OperationName): @Html.DisplayFor( m => m.OperationName )
+</div>
+@if (Model.State != RepositoryOperationResultState.NotStarted)
+{
+    <div class="editor-label">
+        @Html.LabelFor( m => m.MaxIteration ): @Html.DisplayFor( m => m.MaxIteration )
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor( m => m.IterationDone ): @Html.DisplayFor( m => m.IterationDone )
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor( m => m.ProgressInPercent ): @Html.DisplayFor( m => m.ProgressInPercent )
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor( m => m.Duration ): @Html.DisplayFor( m => m.Duration )
+    </div>
+}

@@ -1,0 +1,41 @@
+﻿@using MovieCatalog.Models
+@model Movie
+@{
+    ViewBag.Title = "Details";
+}
+@if (Model != null)
+{
+    <h1>@Html.DisplayFor( m => m.Name )</h1>
+
+    <div>
+        <b>@Html.LabelFor( m => m.Description ):</b> @Html.DisplayFor( m => m.Description )</div>
+
+    if (Model.Roles != null)
+    {
+        <div>
+            <b>@Html.LabelFor( m => m.Roles ):</b></div>
+        <div>
+            @foreach (var role in Model.Roles)
+            {
+                <div>
+                    <b><i>@role.RoleName: </i></b>@role.Actor.Name</div>
+            }
+        </div>
+    }
+
+    if (ViewBag.UsersWhoLikeTheMovie != null)
+    {
+         <h3>
+            Users who like the movie:</h3>
+        <div>
+            @foreach (UserShortDetail user in ViewBag.UsersWhoLikeTheMovie)
+            {
+                <div>@Html.ActionLink( user.Name, "UserInfo", "Home", new { id = user.Id }, null )</div>
+            }
+        </div>
+    }
+}
+else
+{
+    <h1>Movie not found</h1>
+}

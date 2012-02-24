@@ -1,0 +1,8 @@
+﻿@using MovieCatalog.Models
+@{
+    ViewBag.Title = "User Info";
+}
+@if (Model != null)
+{
+    @Html.Partial( "UserDetails", (object)Model, new ViewDataDictionary { { "FriendsFavoriteMovies", ViewBag.FriendsFavoriteMovies } } )
+}
